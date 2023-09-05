@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/diceComponentStyle.css';
 
-const DiceComponent = () => {
+const DiceComponent = ({ updateDiceNumber }) => {
     const [rotateX, setRotateX] = useState(0);
     const [rotateY, setRotateY] = useState(0);
     const [rotateZ, setRotateZ] = useState(0);
@@ -9,12 +9,12 @@ const DiceComponent = () => {
 
     const handleDiceClick = () => {
         const diceFaces = [
-            { x: 0, y: 0, z: 0 },    // [ Numero 6 ] Face 1
-            { x: 90, y: 0, z: 0 },   // [ Numero 4 ] Face 2
-            { x: 0, y: 90, z: 0 },   // [ Numero 2 ] Face 3
-            { x: 0, y: -90, z: 0 },  // [ Numero 5 ] Face 4
-            { x: -90, y: 0, z: 0 },  // [ Numero 3 ] Face 5
-            { x: 180, y: 0, z: 0 }   // [ Numero 1 ] Face 6
+            { x: 0, y: 0, z: 0, number: 6 },    // [ Numero 6 ] Face 1
+            { x: 90, y: 0, z: 0, number: 4 },   // [ Numero 4 ] Face 2
+            { x: 0, y: 90, z: 0, number: 2 },   // [ Numero 2 ] Face 3
+            { x: 0, y: -90, z: 0, number: 5 },  // [ Numero 5 ] Face 4
+            { x: -90, y: 0, z: 0, number: 3 },  // [ Numero 3 ] Face 5
+            { x: 180, y: 0, z: 0, number: 1 }   // [ Numero 1 ] Face 6
         ];
 
         const randomFace = Math.floor(Math.random() * 6);
@@ -23,7 +23,7 @@ const DiceComponent = () => {
         setRotateY(diceFaces[randomFace].y + 360);
         setRotateZ(diceFaces[randomFace].z + 360);
 
-        console.log(`The dice landed on face ${randomFace + 1}`);
+        updateDiceNumber(diceFaces[randomFace].number);
 
         if (diceRef.current) {
             diceRef.current.style.animation = 'none';
