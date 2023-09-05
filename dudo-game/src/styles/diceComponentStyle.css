@@ -1,0 +1,203 @@
+.diceComponent-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diceComponent-dice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diceComponent-add-keyframe {
+    animation-name: diceComponent-rotate, diceComponent-opacity;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+.diceComponent-dice {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg) translateX(0);
+    animation-name: diceComponent-rotate;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+.diceComponent-dice>div {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    background: #E9C46A;
+}
+
+.diceComponent-dice span {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+}
+
+/* Additional styling for each side of the dice */
+/* front */
+.diceComponent-front {
+    transform: rotateY(0deg) translateZ(30px);
+}
+
+.diceComponent-front span:nth-child(1) {
+    top: 10px;
+    left: 12px;
+}
+
+.diceComponent-front span:nth-child(2) {
+    top: 10px;
+    right: 12px;
+}
+
+.diceComponent-front span:nth-child(3) {
+    top: 26px;
+    left: 12px;
+}
+
+.diceComponent-front span:nth-child(4) {
+    top: 26px;
+    right: 12px;
+}
+
+.diceComponent-front span:nth-child(5) {
+    bottom: 10px;
+    left: 12px;
+}
+
+.diceComponent-front span:nth-child(6) {
+    bottom: 10px;
+    right: 12px;
+}
+
+/* back */
+.diceComponent-back {
+    transform: rotateX(180deg) translateZ(30px);
+}
+
+.diceComponent-back span {
+    top: 26px;
+    left: 26px;
+}
+
+/* right */
+.diceComponent-right {
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.diceComponent-right span:nth-child(1) {
+    top: 12px;
+    left: 12px;
+}
+
+.diceComponent-right span:nth-child(2) {
+    top: 12px;
+    right: 12px;
+}
+
+.diceComponent-right span:nth-child(3) {
+    top: 26px;
+    left: 26px;
+}
+
+.diceComponent-right span:nth-child(4) {
+    bottom: 12px;
+    left: 12px;
+}
+
+.diceComponent-right span:nth-child(5) {
+    bottom: 12px;
+    right: 12px;
+}
+
+/* left */
+.diceComponent-left {
+    transform: rotateY(-90deg) translateZ(30px);
+}
+
+.diceComponent-left span:nth-child(1) {
+    top: 12px;
+    right: 12px;
+}
+
+.diceComponent-left span:nth-child(2) {
+    bottom: 12px;
+    left: 12px;
+}
+
+/* top */
+.diceComponent-top {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.diceComponent-top span:nth-child(1) {
+    top: 12px;
+    right: 12px;
+}
+
+.diceComponent-top span:nth-child(2) {
+    bottom: 12px;
+    left: 12px;
+}
+
+.diceComponent-top span:nth-child(3) {
+    bottom: 26px;
+    left: 26px;
+}
+
+/* bottom */
+.diceComponent-bottom {
+    transform: rotateX(-90deg) translateZ(30px);
+}
+
+.diceComponent-bottom span:nth-child(1) {
+    top: 12px;
+    right: 12px;
+}
+
+.diceComponent-bottom span:nth-child(2) {
+    top: 12px;
+    left: 12px;
+}
+
+.diceComponent-bottom span:nth-child(3) {
+    bottom: 12px;
+    left: 12px;
+}
+
+.diceComponent-bottom span:nth-child(4) {
+    bottom: 12px;
+    right: 12px;
+}
+
+.diceComponent-add-keyframe {
+    animation-name: diceComponent-rotate;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes diceComponent-rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        /* Los valores de rotación serán actualizados por JavaScript,
+           esta animación es solo para el efecto visual */
+    }
+}
